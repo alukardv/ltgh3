@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<h1>Question List</h1>
     <form method="post">
         {% csrf_token %}
         {{ form }}
         <button type="submit">Filter</button>
     </form>
+
     <ul>
-        {% for user in users_tg %}
-            <li>{{ user.full_name }}, {{ user.phone_number }}, {{ user.date_of_birth }}, {{ user.time_create }},
-				{{ user.region }}, {{ user.type_of_user }}
-			</li>
+        {% for question in questions %}
+            <li>{{ question.text_question }}</li>
         {% endfor %}
     </ul>
 {% endblock %}

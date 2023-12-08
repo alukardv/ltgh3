@@ -1,6 +1,9 @@
 {% load static %}
 {% url 'main' as main_url %}
+{% url 'question' as question_url %}
 {% url 'about' as about_url %}
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +24,11 @@
                 <li class="nav-item nav-btn-mrg-r">
                     <a href="{{ main_url }}">
                         <button type="button" class="btn btn-outline-light {% if request.path == main_url %}active{% endif %}">Main</button>
+                    </a>
+                </li>
+                <li class="nav-item nav-btn-mrg-r">
+                    <a href="{{ question_url }}">
+                        <button type="button" class="btn btn-outline-light {% if request.path == question_url %}active{% endif %}">Question</button>
                     </a>
                 </li>
                 <li class="nav-item nav-btn-mrg-r">
