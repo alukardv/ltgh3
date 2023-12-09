@@ -1,6 +1,6 @@
 from django import forms
 
-from app1.models import VeteransAssistant, Region, TypeOfUser
+from app1.models import VeteransAssistant, Region, TypeOfUser, UserTG
 
 
 class UsersTGForm(forms.Form):

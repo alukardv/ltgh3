@@ -1,11 +1,37 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Question List</h1>
+<div class="container mt-4">
+    <h1>Question List</h1>
+
     <form method="post">
         {% csrf_token %}
-        {{ form }}
-        <button type="submit">Filter</button>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                {{ form.veterans_assistant.label_tag }}
+                {{ form.veterans_assistant }}
+            </div>
+
+            <div class="form-group col-md-4">
+                {{ form.user_gt.label_tag }}
+                {{ form.user_gt }}
+            </div>
+
+            <div class="form-group col-md-4">
+                {{ form.text_question.label_tag }}
+                {{ form.text_question }}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                {{ form.time_create.label_tag }}
+                {{ form.time_create }}
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Filter</button>
     </form>
 
     <ul>
@@ -13,4 +39,5 @@
             <li>{{ question.text_question }}</li>
         {% endfor %}
     </ul>
+</div>
 {% endblock %}
