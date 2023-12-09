@@ -5,42 +5,16 @@ from django.views import View
 
 
 from app1.forms import QuestionForm, UsersTGForm
-from app1.models import Question, UserTG
+from app1.models import Question, UserTG, Region, TypeOfUser, VeteransAssistant
 
 
-class Main(View):
-    template_name = 'app1/index.html'
+def main(request):
+    data = {
+        'title': 'Main',
+    }
+    return render(request, 'app1/index.html', data)
 
-    def get(self, request, *args, **kwargs):
-        form = UsersTGForm(request.GET)
-        return self.render_users_tg(request, form)
 
-    def post(self, request, *args, **kwargs):
-        form = UsersTGForm(request.POST)
-        if form.is_valid():
-            queryset = UserTG.objects.all()
-            if form.cleaned_data['full_name']:
-                queryset = queryset.filter(full_name__icontains=form.cleaned_data['full_name'])
-            if form.cleaned_data['phone_number']:
-                queryset = queryset.filter(phone_number__icontains=form.cleaned_data['phone_number'])
-            if form.cleaned_data['date_of_birth']:
-                queryset = queryset.filter(date_of_birth=form.cleaned_data['date_of_birth'])
-            if form.cleaned_data['region']:
-                queryset = queryset.filter(region=form.cleaned_data['region'])
-            if form.cleaned_data['type_of_user']:
-                queryset = queryset.filter(type_of_user=form.cleaned_data['type_of_user'])
-            if form.cleaned_data['time_create']:
-                queryset = queryset.filter(time_create__gte=form.cleaned_data['time_create'])
-            users_tg = queryset
-        else:
-            users_tg = UserTG.objects.all()
-
-        return self.render_users_tg(request, form, users_tg)
-
-    def render_users_tg(self, request, form, users_tg=None):
-        if users_tg is None:
-            users_tg = UserTG.objects.all()
-        return render(request, self.template_name, {'title': 'Main', 'users_tg': users_tg, 'form': form})
 
 
 class UsersView(View):
