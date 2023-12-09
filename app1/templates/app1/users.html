@@ -1,16 +1,38 @@
+
 {% extends 'base.html' %}
 
 {% block content %}
-    <form method="post">
+    <form method="post" class="mb-4">
         {% csrf_token %}
-        {{ form }}
-        <button type="submit">Filter</button>
+        <h1>Пошук по користувачам</h1>
+        <div class="input-group mb-3">
+            {{ form.full_name.label_tag }}
+            {{ form.full_name }}
+
+            {{ form.phone_number.label_tag }}
+            {{ form.phone_number }}
+
+            {{ form.date_of_birth.label_tag }}
+            {{ form.date_of_birth }}
+
+            {{ form.region.label_tag }}
+            {{ form.region }}
+        </div>
+
+        <div class="input-group mb-3">
+            {{ form.type_of_user.label_tag }}
+            {{ form.type_of_user }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Filter</button>
     </form>
-    <ul>
+
+    <ul class="list-group">
         {% for user in users_tg %}
-            <li>{{ user.full_name }}, {{ user.phone_number }}, {{ user.date_of_birth }}, {{ user.time_create }},
-				{{ user.region }}, {{ user.type_of_user }}
-			</li>
+            <li class="list-group-item">
+                {{ user.full_name }}, {{ user.phone_number }}, {{ user.date_of_birth }},
+                {{ user.time_create }}, {{ user.region }}, {{ user.type_of_user }}
+            </li>
         {% endfor %}
     </ul>
 {% endblock %}
