@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Filter</button>
+    </form>
+    <ul>
+        {% for user in users_tg %}
+            <li>{{ user.full_name }}, {{ user.phone_number }}, {{ user.date_of_birth }}, {{ user.time_create }},
+				{{ user.region }}, {{ user.type_of_user }}
+			</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
