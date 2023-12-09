@@ -46,6 +46,17 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
+#### Create .env
+```bash
+cp .env.example .env
+```
+
+#### edit .env
+```bash
+vi .env
+```
+
+
 ## DB migrate
 ### with virtual environments 
 ```bash
@@ -73,4 +84,16 @@ poetry run python manage.py load_initial_type_of_users initial_data/type_of_user
 poetry run python manage.py load_initial_veterans_assistant initial_data/veterans_assistant.csv
 poetry run python manage.py load_initial_user_tg initial_data/user_tg.csv
 poetry run python manage.py load_initial_question initial_data/question.csv
+```
+
+## conteiners
+### docker-compose
+```bash
+docker compose up -d
+
+```
+### podman-compose
+```bash
+echo 'net.ipv4.ip_unprivileged_port_start=80' | sudo tee -a /etc/sysctl.conf
+podman-compose up -d
 ```
