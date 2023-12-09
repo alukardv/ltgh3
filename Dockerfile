@@ -22,10 +22,10 @@ COPY . /app
 WORKDIR /app
 
 # create migrations
-RUN poetry run python manage.py migrate --noinput
+#RUN poetry run python manage.py migrate --noinput
 
 # create collectstatic
-RUN poetry run python manage.py collectstatic
+#RUN poetry run python manage.py collectstatic --noinput
 
 # Optional: specify the default command when starting the container
 CMD poetry run python manage.py runserver 0.0.0.0:8000
