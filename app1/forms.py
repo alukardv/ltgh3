@@ -13,6 +13,14 @@ class UsersTGForm(forms.Form):
 
 
 class QuestionForm(forms.Form):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for visible in self.visible_fields():
+            visible.field.widget.attrs['class'] = 'form-question-input'
+
+
     veterans_assistant = forms.ModelChoiceField(queryset=VeteransAssistant.objects.all(), required=False)
     user_gt = forms.CharField(max_length=255, required=False)
     text_question = forms.CharField(max_length=255, required=False)

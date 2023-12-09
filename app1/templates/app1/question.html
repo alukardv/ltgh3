@@ -7,29 +7,40 @@
     <form method="post">
         {% csrf_token %}
 
-        <div class="form-row">
-            <div class="form-group">
-                {{ form.veterans_assistant.label_tag }}
-                {{ form.veterans_assistant }}
-            </div>
-
-            <div class="form-group">
-                {{ form.user_gt.label_tag }}
-                {{ form.user_gt }}
-            </div>
-
-            <div class="form-group">
-                {{ form.text_question.label_tag }}
-                {{ form.text_question }}
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group">
-                {{ form.time_create.label_tag }}
-                {{ form.time_create }}
-            </div>
-        </div>
+        <table>
+            <tr>
+                <td>
+                    {{ form.veterans_assistant.label_tag }}
+                    </td>
+                <td>
+                    {{ form.veterans_assistant }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ form.user_gt.label_tag }}
+                </td>
+                <td>
+                    {{ form.user_gt }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ form.text_question.label_tag }}
+                </td>
+                <td>
+                    {{ form.text_question }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ form.time_create.label_tag }}
+                </td>
+                <td>
+                    {{ form.time_create }}
+                </td>
+            </tr>
+        </table>
 
         <button type="submit" class="btn btn-primary">Filter</button>
     </form>

@@ -2,7 +2,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form method="post" class="mb-4">
+<style>
+    .qwe {
+        margin: 20px 100px;
+    }
+</style>
+    <form method="post" class="mb-4 qwe">
         {% csrf_token %}
         <h1>Пошук по користувачам</h1>
         <div class="input-group mb-3">
@@ -27,7 +32,7 @@
         <button type="submit" class="btn btn-primary">Filter</button>
     </form>
 
-    <ul class="list-group">
+    <ul class="list-group qwe">
         {% for user in users_tg %}
             <li class="list-group-item">
                 {{ user.full_name }}, {{ user.phone_number }}, {{ user.date_of_birth }},
