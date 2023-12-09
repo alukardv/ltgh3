@@ -8,14 +8,6 @@ class Region(models.Model):
         return self.title
 
 
-# class City(models.Model):
-#     title = models.CharField(max_length=255)
-#     region = models.ForeignKey(Region, on_delete=models.SET_NULL, null=True, blank=True)
-#
-#     def __str__(self):
-#         return self.title
-
-
 class TypeOfUser(models.Model):
     title = models.CharField(max_length=255)
 
@@ -29,7 +21,6 @@ class UserTG(models.Model):
     date_of_birth = models.DateField()
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
-    #city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True, blank=True)
     region = models.ForeignKey(Region, on_delete=models.PROTECT, null=True, blank=True)
     type_of_user = models.ForeignKey(TypeOfUser, on_delete=models.PROTECT, null=True, blank=True)
 
@@ -45,7 +36,6 @@ class VeteransAssistant(models.Model):
     date_of_birth = models.DateField()
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
-    #city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True, blank=True)
     region = models.ForeignKey(Region, on_delete=models.PROTECT, null=True, blank=True)
     type_of_user = models.ForeignKey(TypeOfUser, on_delete=models.PROTECT, null=True, blank=True)
 

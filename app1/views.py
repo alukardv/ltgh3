@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseNotFound
 from django.views.generic import TemplateView
 from django.views import View
-
+from django.http import HttpResponseRedirect
 
 from app1.forms import QuestionForm, UsersTGForm
 from app1.models import Question, UserTG, Region, TypeOfUser, VeteransAssistant
@@ -15,6 +15,16 @@ def main(request):
     return render(request, 'app1/index.html', data)
 
 
+class MainView(View):
+    template_name = 'app1/index.html'
+
+    def get(self, request, *args, **kwargs):
+        user_count = UserTG.objects.count()
+        veterans_assistant_count = VeteransAssistant.objects.count()
+        question_count = Question.objects.count()
+        return render(request, self.template_name, {'user_count': user_count,
+                                                    'veterans_assistant_count': veterans_assistant_count,
+                                                    'question_count': question_count,})
 
 
 class UsersView(View):
@@ -49,7 +59,7 @@ class UsersView(View):
     def render_users_tg(self, request, form, users_tg=None):
         if users_tg is None:
             users_tg = UserTG.objects.all()
-        return render(request, self.template_name, {'title': 'Users', 'users_tg': users_tg, 'form': form})
+        return render(request, self.template_name, {'title': 'Пошук по користувачам', 'users_tg': users_tg, 'form': form})
 
 
 class QuestionListView(View):
@@ -80,7 +90,7 @@ class QuestionListView(View):
     def render_questions(self, request, form, questions=None):
         if questions is None:
             questions = Question.objects.all()
-        return render(request, self.template_name, {'title': 'Question', 'questions': questions, 'form': form})
+        return render(request, self.template_name, {'title': 'Пошук по запитам', 'questions': questions, 'form': form})
 
 
 def about(request):

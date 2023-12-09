@@ -1,6 +1,6 @@
 from django import forms
 
-from app1.models import VeteransAssistant, Region, TypeOfUser, UserTG
+from app1.models import VeteransAssistant, Region, TypeOfUser, UserTG, Question
 
 
 class UsersTGForm(forms.Form):
@@ -17,4 +17,3 @@ class QuestionForm(forms.Form):
     user_gt = forms.CharField(max_length=255, required=False)
     text_question = forms.CharField(max_length=255, required=False)
     time_create = forms.DateTimeField(required=False, widget=forms.TextInput(attrs={'type': 'datetime-local'}))
-

@@ -1,5 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
+  <div class="container mt-5">
+    <h2>Кількість користувачів</h2>
+    <p class="lead">Усього користувачів: {{ user_count }}</p>
+    <hr class="my-4">
 
+    <h2>Кількість помічників ветеранів</h2>
+    <p class="lead">Усього помічників ветеранів: {{ veterans_assistant_count }}</p>
+    <hr class="my-4">
+
+    <h2>Кількість запитів</h2>
+    <p class="lead">Усього запитів: {{ question_count }}</p>
+  </div>
 {% endblock %}
