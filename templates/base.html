@@ -18,27 +18,27 @@
         <header class="d-flex flex-wrap justify-content-center py-3 ">
             <a href="/" class="d-flex align-items-center mb-3 lg-4 md-4 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
                 <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-                <span class="fs-4 text-white">e-veteran.pp.ua</span>
+                <span class="fs-4 text-white">E-VETERAN</span>
             </a>
             <ul class="nav nav-pills lg-4 md-3">
                 <li class="nav-item nav-btn-mrg-r">
                     <a href="{{ main_url }}">
-                        <button type="button" class="btn btn-outline-light {% if request.path == main_url %}active{% endif %}">Main</button>
+                        <button type="button" class="btn btn-outline-light {% if request.path == main_url %}active{% endif %}">Головна</button>
                     </a>
                 </li>
                 <li class="nav-item nav-btn-mrg-r">
                     <a href="{{ users_url }}">
-                        <button type="button" class="btn btn-outline-light {% if request.path == users_url %}active{% endif %}">Users</button>
+                        <button type="button" class="btn btn-outline-light {% if request.path == users_url %}active{% endif %}">Користувачі</button>
                     </a>
                 </li>
                 <li class="nav-item nav-btn-mrg-r">
                     <a href="{{ question_url }}">
-                        <button type="button" class="btn btn-outline-light {% if request.path == question_url %}active{% endif %}">Question</button>
+                        <button type="button" class="btn btn-outline-light {% if request.path == question_url %}active{% endif %}">Запити</button>
                     </a>
                 </li>
                 <li class="nav-item nav-btn-mrg-r">
                     <a href="{{ about_url }}">
-                        <button type="button" class="btn btn-outline-light {% if request.path == about_url %}active{% endif %}">About</button>
+                        <button type="button" class="btn btn-outline-light {% if request.path == about_url %}active{% endif %}">Про нас</button>
                     </a>
                 </li>
 
@@ -46,15 +46,15 @@
                 <li class="nav-item nav-btn-mrg-r">
                     <button type="button" class="btn btn-outline-light"> {{user.username}} </button>
                     <a href="{% url 'users:logout' %}">
-                        <button type="button" class="btn btn-outline-light"> Exit </button>
+                        <button type="button" class="btn btn-outline-light">Вийти</button>
                     </a>
                 </li>
                 {% else %}
                 <li class="nav-item nav-btn-mrg-r">
                     <a href="{% url 'users:login' %}">
-                        <button type="button" class="btn btn-outline-light">Login</button></a>
+                        <button type="button" class="btn btn-outline-light">Логін</button></a>
                     <a href="#">
-                        <button type="button" class="btn btn-outline-light">Reg</button>
+                        <button type="button" class="btn btn-outline-light">Реєстрація</button>
                     </a>
                 </li>
                 {% endif %}

@@ -22,9 +22,16 @@ class MainView(View):
         user_count = UserTG.objects.count()
         veterans_assistant_count = VeteransAssistant.objects.count()
         question_count = Question.objects.count()
-        return render(request, self.template_name, {'user_count': user_count,
-                                                    'veterans_assistant_count': veterans_assistant_count,
-                                                    'question_count': question_count,})
+        return render(
+            request,
+            self.template_name,
+            {
+                'title': 'Головна',
+                'user_count': user_count,
+                'veterans_assistant_count': veterans_assistant_count,
+                'question_count': question_count
+            }
+        )
 
 
 class UsersView(View):
